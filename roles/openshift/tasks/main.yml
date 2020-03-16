@@ -13,3 +13,7 @@
   template:
     src: install-config.yaml.j2
     dest: /root/openshift/ocp4/install-config.yaml
+
+- name: Create ignition files
+  command: >
+    openshift-install --dir ~/openshift/{{cluster_id}} create ignition-configs
