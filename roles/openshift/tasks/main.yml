@@ -1,3 +1,4 @@
+
 - name: Delete configuration directory
   file:
     path: /root/openshift/ocp4
@@ -11,4 +12,4 @@
 - name: Template ignition configuration file
   template:
     src: install-config.yaml.j2
-    dest: /root/openshift/ocp4/install-config.yam
+    dest: /root/openshift/ocp4/install-config.yaml
