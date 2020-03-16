@@ -1,14 +1,8 @@
-- name: Prepare Openshift dependencies
-  hosts: all
-  gather_facts: no
-
-  tasks:
-    - name: Delete configuration directory
-      file:
-        path: /root/openshift/ocp4
-        state: absent
-
-    - name: Template ignition configuration file
-      template:
-        src: install-config.yaml.j2
-        dest: /root/openshift/ocp4/install-config.yaml
+- name: Delete configuration directory
+  file:
+    path: /root/openshift/ocp4
+    state: absen
+- name: Template ignition configuration file
+  template:
+    src: install-config.yaml.j2
+    dest: /root/openshift/ocp4/install-config.yam
