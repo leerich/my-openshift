@@ -11,8 +11,8 @@
   hosts: all
   gather_facts: no
   vars:
-    master_ignition: "{{lookup('file', /root/openshift/ocp4/master.ign')}}"
-    worker_ignition: "{{lookup('file', /root/openshift/ocp4/worker.ign')}}"
+    master_ignition: "{{lookup('file', '/root/openshift/ocp4/master.ign')}}"
+    worker_ignition: "{{lookup('file', '/root/openshift/ocp4/worker.ign')}}"
   tasks:
     - name: create Terraform configuration file
       template:
