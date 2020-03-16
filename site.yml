@@ -13,7 +13,7 @@
   vars:
     master_ignition: "{{lookup('file', /root/openshift/ocp4/master.ign')}}"
     worker_ignition: "{{lookup('file', /root/openshift/ocp4/worker.ign')}}"
-  tasks
+  tasks:
     - name: create Terraform configuration file
       template:
         src: terraform.tfvars.j2
