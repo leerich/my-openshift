@@ -19,6 +19,10 @@
         src: '/root/openshift/{{cluster_id}}/master.ign'
       register: master_ignition
 
+    - name: Debug master ignition variable
+      debug:
+        msg: "{{ master_ignition['content'] | b64decode }}"
+
     - name: Read in worker ignition file
       slurp:
         src: '/root/openshift/{{cluster_id}}/worker.ign'
@@ -37,9 +41,9 @@
       file:
         path: '/root/openshift/installer/upi/vsphere/.terraform'
         state: absent
-    - name: Terraform init
-      command: >
-        chdir=/root/openshift/installer/upi/vsphere terraform init
+    #- name: Terraform init
+    #  command: >
+    #    chdir=/root/openshift/installer/upi/vsphere terraform init
     #- name: Terraform Apply
     #  command: >
     #    chdir=/root/openshift/installer/upi/vsphere terraform apply --auto-approve
