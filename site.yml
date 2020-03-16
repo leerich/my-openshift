@@ -41,9 +41,9 @@
       file:
         path: '/root/openshift/installer/upi/vsphere/.terraform'
         state: absent
-    #- name: Terraform init
-    #  command: >
-    #    chdir=/root/openshift/installer/upi/vsphere terraform init
+    - name: Terraform init
+      command: >
+        chdir=/root/openshift/installer/upi/vsphere terraform init
     #- name: Terraform Apply
     #  command: >
     #    chdir=/root/openshift/installer/upi/vsphere terraform apply --auto-approve
