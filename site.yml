@@ -31,4 +31,4 @@
     - name: create Terraform configuration file
       template:
         src: terraform.tfvars.j2
-        dest: ~/opentshift/installer/upi/vsphere/terrafrom.tfvars
+        dest: ~/openshift/installer/upi/vsphere/terraform.tfvars
