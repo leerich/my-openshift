@@ -11,19 +11,28 @@
   hosts: all
   gather_facts: no
   become: yes
-  
+
   tags: terraform
   tasks:
     - name: Read in master ignition file
       slurp:
-        src: '/root/openshift/ocp4/master.ign'
+        src: '/root/openshift/{{cluster_id}}/master.ign'
       register: master_ignition
     - name: Read in worker ignition file
       slurp:
-        src: '/root/openshift/ocp4/worker.ign'
+        src: '/root/openshift/{{cluster_id}}/worker.ign'
       register: worker_ignition
 
     - name: create Terraform configuration file
       template:
         src: terraform.tfvars.j2
         dest: ~/openshift/installer/upi/vsphere/terraform.tfvars
+
+    - name: Remove previous terraform files
+      file:
+        src: '/root/openshift/installer/upi/vsphere/terraform.tfstate'
+        state: absent
+    - name: Remove previous terraform hidden directory
+      file:
+        src: '/root/openshift/installer/upi/vsphere/.terraform'
+        state: absent
