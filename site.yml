@@ -37,3 +37,7 @@
       file:
         path: '/root/openshift/installer/upi/vsphere/.terraform'
         state: absent
+    - name: Terraform init
+      command: >
+        cd /root/openshift/installer/upi/vsphere
+        terraform init 
