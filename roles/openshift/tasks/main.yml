@@ -21,3 +21,7 @@
 #- name: Copy bootstrap ignition file to web server
 #  copy:
 #    src: ~/openshift/{{cluster_id}}/bootstrap.ign
+
+- name: Copy bootstrap ignition file to web server
+  command: >
+    scp ~/openshift/{{cluster_id}}/bootstrap.ign nlrich@192.168.1.16:/volume1/web/openshift/bootstrap.ign 
