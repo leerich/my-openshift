@@ -25,9 +25,6 @@
         src: '/root/openshift/ocp4/worker.ign'
       register: worker_ignition
 
-    - name: Debug variables
-      debug: var={{master_ignition}}
-
     - name: create Terraform configuration file
       template:
         src: terraform.tfvars.j2
