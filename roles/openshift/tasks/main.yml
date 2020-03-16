@@ -6,7 +6,7 @@
 - name: Recreate configuration directory
   file:
     path: /root/openshift/ocp4
-    state: present
+    state: directory
 
 - name: Template ignition configuration file
   template:
