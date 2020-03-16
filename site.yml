@@ -18,6 +18,7 @@
       slurp:
         src: '/root/openshift/{{cluster_id}}/master.ign'
       register: master_ignition
+
     - name: Read in worker ignition file
       slurp:
         src: '/root/openshift/{{cluster_id}}/worker.ign'
@@ -30,9 +31,9 @@
 
     - name: Remove previous terraform files
       file:
-        src: '/root/openshift/installer/upi/vsphere/terraform.tfstate'
+        path: '/root/openshift/installer/upi/vsphere/terraform.tfstate'
         state: absent
     - name: Remove previous terraform hidden directory
       file:
-        src: '/root/openshift/installer/upi/vsphere/.terraform'
+        path: '/root/openshift/installer/upi/vsphere/.terraform'
         state: absent
