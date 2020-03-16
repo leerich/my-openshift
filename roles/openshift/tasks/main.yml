@@ -26,15 +26,15 @@
   command: >
     scp ~/openshift/{{cluster_id}}/bootstrap.ign {{nfs_username}}@{{nfs_server}}:/volume1/web/openshift/bootstrap.ign
 
-- name: Terraform Section
-  hosts: all
-  gather_facts: no
-  vars:
-    master_ignition: "{{lookup('file', /root/openshift/ocp4/master.ign')}}"
-    worker_ignition: "{{lookup('file', /root/openshift/ocp4/worker.ign')}}"
-  tasks:
-
-    - name: create Terraform configuration file
-      template:
-        src: terraform.tfvars.j2
-        dest: ~/opentshift/installer/upi/vsphere/terrafrom.tfvars
+#- name: Terraform Section
+#  hosts: all
+#  gather_facts: no
+#  vars:
+#    master_ignition: "{{lookup('file', /root/openshift/ocp4/master.ign')}}"
+#    worker_ignition: "{{lookup('file', /root/openshift/ocp4/worker.ign')}}"
+#  tasks:
+#
+#    - name: create Terraform configuration file
+#      template:
+#        src: terraform.tfvars.j2
+#        dest: ~/opentshift/installer/upi/vsphere/terrafrom.tfvars
