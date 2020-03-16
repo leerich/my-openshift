@@ -17,3 +17,7 @@
 - name: Create ignition files
   command: >
     openshift-install --dir ~/openshift/{{cluster_id}} create ignition-configs
+
+#- name: Copy bootstrap ignition file to web server
+#  copy:
+#    src: ~/openshift/{{cluster_id}}/bootstrap.ign
