@@ -1,0 +1,5 @@
+NAMESPACE=tower-scale
+oc -n $NAMESPACE create -f https://docs.ansible.com/ansible-tower/latest/html/userguide/_downloads/service-account.yml
+SECRET_NAME=$(oc -n $NAMESPACE get sa awx -o json | jq -r '.secrets[0].name')
+oc -n $NAMESPACE get secret $SECRET_NAME  -o json | jq -r '.data["token"]  | @base64d' # The token
+oc -n $NAMESPACE get secret $SECRET_NAME  -o json | jq -r '.data["ca.crt"] | @base64d' # The CA data
