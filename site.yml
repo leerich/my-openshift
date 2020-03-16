@@ -11,13 +11,22 @@
   hosts: all
   gather_facts: no
   become: yes
-  vars:
-    #master_ignition: "{{lookup('file', '/root/openshift/ocp4/master.ign')}}"
-    worker_ignition: "{{lookup('file', '/root/openshift/ocp4/worker.ign')}}"
+  #vars:
+  #  #master_ignition: "{{lookup('file', '/root/openshift/ocp4/master.ign')}}"
+  #  worker_ignition: "{{lookup('file', '/root/openshift/ocp4/worker.ign')}}"
   tags: terraform
   tasks:
+    - name: Read in master ignition file
+      slurp:
+        src: '/root/openshift/ocp4/master.ign'
+      register: master_ignition
+    - name: Read in worker ignition file
+      slurp:
+        src: '/root/openshift/ocp4/worker.ign'
+      register: worker_ignition
+
     - name: Debug variables
-      debug: msg="{{lookup('file', '/root/openshift/ocp4/worker.ign')}}"
+      debug: var={{master_ignition}}
 
     - name: create Terraform configuration file
       template:
