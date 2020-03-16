@@ -2,6 +2,12 @@
   file:
     path: /root/openshift/ocp4
     state: absent
+
+- name: Recreate configuration directory
+  file:
+    path: /root/openshift/ocp4
+    state: present
+
 - name: Template ignition configuration file
   template:
     src: install-config.yaml.j2
