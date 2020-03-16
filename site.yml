@@ -39,4 +39,4 @@
         state: absent
     - name: Terraform init
       command: >
-        cd /root/openshift/installer/upi/vsphere; terraform init 
+        chdir=/root/openshift/installer/upi/vsphere terraform init
