@@ -12,7 +12,7 @@
   gather_facts: no
   become: yes
   vars:
-    master_ignition: "{{lookup('file', '/root/openshift/ocp4/master.ign')}}"
+    #master_ignition: "{{lookup('file', '/root/openshift/ocp4/master.ign')}}"
     worker_ignition: "{{lookup('file', '/root/openshift/ocp4/worker.ign')}}"
   tags: terraform
   tasks:
