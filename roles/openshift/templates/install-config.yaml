@@ -1,0 +1,16 @@
+apiVersion: v1
+baseDomain:  the-group.us
+metadata:
+  name: "{{cluster_id}}"
+networking:
+  machineCIDR: "{{machine_cidr}}"
+platform:
+  vsphere:
+    vcenter: "{{vcenter_server}}"
+    username: "{{vcenter_username}}"
+    password: "{{vcenter_password}}"
+    datacenter: "{{vcenter_datacenter}}"
+    defaultDatastore: "{{vcenter_datastore}}"
+fips: false
+pullSecret: "{{pull_secret}}"
+sshKey: "{{ssh_key}}"
