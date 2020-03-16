@@ -40,3 +40,6 @@
     - name: Terraform init
       command: >
         chdir=/root/openshift/installer/upi/vsphere terraform init
+    - name: Terraform Apply
+      command: >
+        chdir=/root/openshift/installer/upi/vsphere terraform apply --auto-approve
