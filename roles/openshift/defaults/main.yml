@@ -1,0 +1,10 @@
+---
+machine_cidr: "192.168.0.0/16"
+vcenter_network: "VM Network"
+vcenter_cluster: "Cluster"
+vm_template: "RHCOS-latest"
+control_plane_count: 3
+compute_count: 2
+bootstrap_ip: "192.168.133.9"
+control_plane_ips: '["192.168.133.10", "192.168.133.11", "192.168.133.12"]'
+compute_ips: '["192.168.133.13", "192.168.133.14"]'
