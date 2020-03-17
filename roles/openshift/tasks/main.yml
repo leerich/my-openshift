@@ -1,18 +1,18 @@
 
 - name: Delete configuration directory
   file:
-    path: /root/openshift/ocp4
+    path: /root/openshift/{{cluster_id}}
     state: absent
 
 - name: Recreate configuration directory
   file:
-    path: /root/openshift/ocp4
+    path: /root/openshift/{{cluster_id}}
     state: directory
 
 - name: Template ignition configuration file
   template:
     src: install-config.yaml.j2
-    dest: /root/openshift/ocp4/install-config.yaml
+    dest: /root/openshift/{{cluster_id}}/install-config.yaml
 
 - name: Create ignition files
   command: >
