@@ -37,13 +37,20 @@
       file:
         path: '/root/openshift/installer/upi/vsphere/terraform.tfstate'
         state: absent
+
     - name: Remove previous terraform hidden directory
       file:
         path: '/root/openshift/installer/upi/vsphere/.terraform'
         state: absent
+
     - name: Terraform init
       command: >
         chdir=/root/openshift/installer/upi/vsphere terraform init
-    #- name: Terraform Apply
-    #  command: >
-    #    chdir=/root/openshift/installer/upi/vsphere terraform apply --auto-approve
+
+    - name: Terraform Plan
+      command: >
+        chdir=/root/openshift/installer/upi/vsphere terraform plan
+
+    - name: Terraform Apply
+      command: >
+        chdir=/root/openshift/installer/upi/vsphere terraform apply --auto-approve
