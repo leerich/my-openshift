@@ -1,0 +1,6 @@
+- name: Get bearer Token
+  uri:
+    url: https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
+    method: GET
+    return_content: yes
+    body_format: form-urlencoded
