@@ -45,7 +45,7 @@
 
     - name: Terraform init
       command: >
-        chdir=/root/openshift/installer/upi/vsphere terraform init
+        chdir=/root/openshift/installer/upi/vsphere terraform init -verify-plugins=false
 
     - name: Terraform Plan
       command: >
